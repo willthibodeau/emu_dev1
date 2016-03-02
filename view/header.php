@@ -15,16 +15,16 @@
 <header>
 <nav class="clear">
 <ul class="dropdown">
-<li><a href="index.php">Home</a></li>
+<li><a href="../index.php">Home</a></li>
 <li><a href="newfolder/index.php">Products</a></li>
 <li><a href="#">Comments</a></li>
-<li><a href="#">Login</a>
+<li><a href="/emu_dev1/admin/">Login</a>
   <ul>
-    <li><a href="/admin/index.php">Administrators</a></li>
+    <li><a href="#">Administrators</a></li>
     <li><a href="#">Members</a></li>
   </ul></li>
 <li><a href="#">Contact Us</a></li>
 </ul>
 </nav>
-<h1>CSS3: The Missing Manual</h1>
+<h1>Elite Meats Utah</h1>
 </header>

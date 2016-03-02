@@ -46,7 +46,7 @@ body {
 
 header {
 	background-color:rgb(93,43,78); 
-	background-image: -webkit-linear-gradient(right, rgb(93,43,78), rgb(8,2,50));
+	background: url("img/wood.jpg") ; 
 	padding-bottom: 30px;
 }
 
@@ -92,7 +92,7 @@ nav li:last-of-type a {
 	border-right: none;	
 }
 nav a:hover {
-	background-color: rgb(93,43,78);
+	background-color: rgb(189,165,127);
 }
 aside h2 {
 	font-size: 1.3em;

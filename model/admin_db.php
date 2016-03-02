@@ -10,17 +10,19 @@ function is_valid_admin_login($username, $password) {
     $statement->execute();
     if ($statement->rowCount() == 1) {
         $valid = true;
+        print_r($valid);
     } else {
         $valid = false;
     }
     $statement->closeCursor();
     return $valid;
+    
 }
 
 function get_admins() {
     global $db;
     $query = 'SELECT * FROM users
-              ORDER BY users_lastName';
+              ORDER BY lastName';
     try {
         $statement = $db->prepare($query);
         $statement->execute();

@@ -1,6 +1,6 @@
 <footer>
     <p class="copyright">
-        &copy; <?php echo date("Y"); ?> SportsPro, Inc.
+        &copy; <?php echo date("Y"); ?> Elite Meats Utah
     </p>
 </footer>
 </div><!-- end pagewrapper --> 
