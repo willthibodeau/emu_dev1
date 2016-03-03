@@ -16,14 +16,12 @@
 <nav class="clear">
 <ul class="dropdown">
 <li><a href="../index.php">Home</a></li>
-<li><a href="newfolder/index.php">Products</a></li>
-<li><a href="#">Comments</a></li>
-<li><a href="/emu_dev1/admin/">Login</a>
-  <ul>
-    <li><a href="#">Administrators</a></li>
-    <li><a href="#">Members</a></li>
-  </ul></li>
-<li><a href="#">Contact Us</a></li>
+<li><a href="/emu_dev1/product/">Products</a></li>
+<li><a href="/emu_dev1/member/">Members</a></li>
+<li><a href="../contact.php">Contact Us</a></li>
+<li><a href="/emu_dev1/admin/">Login</a></li>
+<li><a href="/emu_dev1/util/logout.php">Logout</a></li>
+
 </ul>
 </nav>
 <h1>Elite Meats Utah</h1>

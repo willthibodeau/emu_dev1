@@ -1,5 +1,5 @@
 <?php 
-
+echo 'add_category';
 include '../view/header.php'; 
 require_once('../util/valid_admin.php');
 
@@ -40,6 +40,11 @@ require_once('../util/valid_admin.php');
     <p class="last_paragraph">
         <a href="index.php?action=list_products">View Product List</a>
     </p>
+
+    <form action="" method="post">
+        <input type="hidden" name="action" value="logout">
+        <input type="submit" value="Logout">
+    </form>
 
 </main>
 <?php include '../view/footer.php'; ?>

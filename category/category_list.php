@@ -1,5 +1,5 @@
 <?php 
-
+echo 'category_list';
 include '../view/header.php'; 
 require_once('../util/valid_admin.php');
 
@@ -33,11 +33,16 @@ require_once('../util/valid_admin.php');
         <input type="hidden" name="action" value="add_category" />
 
         <label>Name:</label>
-        <input type="text" name="name" />
+        <input type="text" required="required" name="name" />
         <input type="submit" value="Add"/>
     </form>
 
     <p><a href="index.php?action=list_products">List Products</a></p>
+
+    <form action="" method="post">
+        <input type="hidden" name="action" value="logout">
+        <input type="submit" value="Logout">
+    </form>
 
 </main>
 <?php include '../view/footer.php'; ?>

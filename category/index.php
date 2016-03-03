@@ -74,5 +74,8 @@ if ($action == 'list_products') {
     delete_category($category_id);
     
     header('Location: .?action=list_categories');      // display the Category List page
-}
+} else if ($action == 'logout'){ 
+        unset($_SESSION['admin']);
+        header('Location: ..' );
+       } 
 ?>

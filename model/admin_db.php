@@ -3,7 +3,27 @@ function is_valid_admin_login($username, $password) {
     global $db;
     $query = '
         SELECT * FROM users
-        WHERE users_username = :username AND users_password = :password';
+        WHERE users_username = :username AND users_password = :password AND users_userLevel = "a"';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':username', $username);
+    $statement->bindValue(':password', $password);
+    $statement->execute();
+    if ($statement->rowCount() == 1) {
+        $valid = true;
+        print_r($valid);
+    } else {
+        $valid = false;
+    }
+    $statement->closeCursor();
+    return $valid;
+    
+}
+
+function is_valid_member_login($username, $password) {
+    global $db;
+    $query = '
+        SELECT * FROM users
+        WHERE users_username = :username AND users_password = :password and users_userLevel = m';
     $statement = $db->prepare($query);
     $statement->bindValue(':username', $username);
     $statement->bindValue(':password', $password);

@@ -7,11 +7,11 @@
         <input type="hidden" name="action" value="login">
 
         <label>Username:</label>
-        <input type="text" name="username" size="30">
+        <input type="text" required="required" name="username" size="30">
         <br>
 
         <label>Password:</label>
-        <input type="password" name="password" size="30">
+        <input type="password" required="required" name="password" size="30">
         <br>
 
         <label>&nbsp;</label>

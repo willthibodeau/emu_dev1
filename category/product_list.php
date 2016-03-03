@@ -46,5 +46,10 @@ require_once('../util/valid_admin.php');
                 List Categories</a>
         </p>        
     </section>
+
+    <form action="" method="post">
+        <input type="hidden" name="action" value="logout">
+        <input type="submit" value="Logout">
+    </form>
 </main>
 <?php include '../view/footer.php'; ?>

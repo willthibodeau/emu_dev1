@@ -8,9 +8,7 @@
     
     <ul>
         <li><a href="../category">Category Manager</a></li>
-        <li><a href="../technician_manager">Manage Technicians</a></li>
-        <li><a href="../customer_manager">Manage Customers</a></li>
-        <li><a href="../incident_create">Create Incident</a></li>
+        
         
     </ul>
    
