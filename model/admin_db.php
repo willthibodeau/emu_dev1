@@ -10,7 +10,6 @@ function is_valid_admin_login($username, $password) {
     $statement->execute();
     if ($statement->rowCount() == 1) {
         $valid = true;
-        print_r($valid);
     } else {
         $valid = false;
     }
@@ -30,7 +29,6 @@ function is_valid_member_login($username, $password) {
     $statement->execute();
     if ($statement->rowCount() == 1) {
         $valid = true;
-        print_r($valid);
     } else {
         $valid = false;
     }
