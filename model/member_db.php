@@ -23,6 +23,7 @@ function add_registration($customer_id, $product_code) {
 
 function add_member( $username, $password, $userLevel) {
     global $db;
+    $password = sha1($username . $password);
     $query = 'INSERT INTO users
                  (users_userID, users_username, users_password, users_userLevel)
               VALUES
@@ -36,8 +37,18 @@ function add_member( $username, $password, $userLevel) {
     $statement->closeCursor();
 }
 
+function get_hashed_password($username){
+    $query = 'SELECT users_password from users where users_username = $username';
+    $statement = $db->prepare($query);
+    $statement->execute();
+    $hashedPassword = $statement->fetch();
+    $statement->closeCursor();
+    return $hashedPassword;
+}
+
 function is_valid_member_login($username, $password) {
     global $db;
+    $password = sha1($username . $password);
     $query = '
         SELECT * FROM users
         WHERE users_username = :username AND users_password = :password AND users_userLevel = "m"';
@@ -51,7 +62,7 @@ function is_valid_member_login($username, $password) {
         $valid = false;
     }
     $statement->closeCursor();
-    return $valid;
-    
+    return $valid; 
+//    http://jayblanchard.net/proper_password_hashing_with_PHP.html
 }
 ?>
