@@ -15,7 +15,7 @@
 <header>
 <nav class="clear">
 <ul class="dropdown">
-<li><a href="../index.php">Home</a></li>
+<li><a href="/emu_dev1/index.php">Home</a></li>
 <li><a href="/emu_dev1/product/">Products</a></li>
 <li><a href="/emu_dev1/member/">Members</a></li>
 <li><a href="../contact.php">Contact Us</a></li>

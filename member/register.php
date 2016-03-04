@@ -1,42 +1,28 @@
-<?php
-    require_once('../util/secure_conn.php');
-    require_once('../util/valid_customer.php');
-?>
 <?php include '../view/header.php'; ?>
+
+<?php 
+
+?>
 <main>
+ <p>You are logged in as <?php echo $_SESSION['members']; ?>.</p>
+    <h1>Member Login</h1>
+    
+   <h1>Member Resistration</h1>
+    <form action="" method="post" id="register_form">
+        <input type="hidden" name="action" value="register_now">
 
-    <h2>Register Product</h2>
-    <?php if (isset($message)) : ?>
-        <p><?php echo $message; ?></p>
-    <?php else: ?>
-        <form action="" method="post" id="aligned">
-            <input type="hidden" name="action" value="register_product">
+        <input type="hidden" name="id" value="">
+        <label>User Name:</label>
+        <input type="text" name="username" size="30">
+        <br>
 
-            <label>Customer:</label>
-            <label><?php echo htmlspecialchars(
-                    $customer['firstName'] . ' ' . 
-                    $customer['lastName']); ?></label>
-            <br>
+        <label>Password:</label>
+        <input type="password" name="password" size="30" > 
+        <input type="hidden" name="userLevel" value="m">
+        <br>
 
-            <label>Product:</label>
-            <select name="product_code">
-            <?php foreach ($products as $product) : ?>
-                <option value="<?php echo htmlspecialchars($product['productCode']); ?>">
-                    <?php echo htmlspecialchars($product['name']); ?>
-                </option>
-            <?php endforeach; ?>
-            </select>
-            <br>
-
-            <label>&nbsp;</label>
-            <input type="submit" value="Register Product">
-        </form>
-    <?php endif; ?>
-    <p>You are logged in as <?php echo htmlspecialchars($customer['email']); ?></p>
-    <form action="" method="post">
-        <input type="hidden" name="action" value="logout">
-        <input type="submit" value="Logout">
+        <label>&nbsp;</label>
+        <input type="submit" value="Register">
     </form>
-
 </main>
 <?php include '../view/footer.php'; ?>

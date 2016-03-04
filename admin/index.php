@@ -10,7 +10,9 @@ if ($action === NULL) {
     if ($action === NULL) {
         if (isset($_SESSION['admin'])) {    // Skip login if customer is in the session
             $action = 'view_menu';
-        } else {
+        } else if(isset ($_SESSION['member'])) {
+            echo 'error, you are logged in as a member and cannot use this area.';
+        }else{
             $action = 'view_login';
         }
     }
