@@ -65,4 +65,18 @@ function is_valid_member_login($username, $password) {
     return $valid; 
 //    http://jayblanchard.net/proper_password_hashing_with_PHP.html
 }
+
+// check for existing room name
+function detect_member_name($name){
+	global $db;
+	$sql = "Select users_username from users where users_username = '$name'";
+	$stmt = $db->prepare($sql);
+	$stmt->execute();
+		if($data = $stmt->fetch()){
+			$error_message = "The username you entered is already in the database, please try another name.";
+                        include 'register.php';
+		} else {
+			return false;
+		}
+}
 ?>

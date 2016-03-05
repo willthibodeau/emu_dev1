@@ -122,12 +122,6 @@ CREATE TABLE IF NOT EXISTS `users` (
 INSERT INTO `users` (`users_userID`, `users_username`, `users_password`, `users_userLevel`) VALUES
 (1, 'will', '123', 'a'),
 (2, 'mwill', '123', 'm'),
-(3, 'nwill', '123', 'm'),
-(5, 'bwill', '456', 'm'),
-(7, 'hashwill', '$2y$10$x3mBqqswjW7Vem87voqsKu/8Zn9EAiZtsGk5ls4Y8sZidv1Ot8VPS', 'm'),
-(10, 'shawill', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'm'),
-(12, 'hashwill2', '41f12c9e5073d4a2cc34df433971879a5d82b020', 'm');
-
 --
 -- Indexes for dumped tables
 --

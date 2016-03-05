@@ -45,15 +45,30 @@ switch ($action) {
         break;
         
     case 'register':
+        $error_message = " ";
         include 'register.php';
         break;
     
-    case 'register_now': 
+    case 'register_now':
+        
         $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
         $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
         $userLevel = filter_input(INPUT_POST, 'userLevel', FILTER_SANITIZE_STRING);
-        add_member(  $username, $password, $userLevel);
-        include('successful.php');
+        
+        $regex_patern = '/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,20}$/';
+        if (!preg_match( $regex_patern, $password)){
+           $errors['password'] = "Please enter a password within the given parameters";
+        } 
+        if($username == Null || $username == FALSE || $password == NULL || $password == FALSE) {
+            $errors['username'] = "Please enter a username and password to register.";
+            
+        } else {
+            
+            $detectMemberName = detect_member_name($username);
+            if($detectMemberName == false){
+                add_member($username, $password, $userLevel);
+            }
+        }
         break;
     
     case 'logout':
@@ -67,15 +82,3 @@ switch ($action) {
 }
 ?>
 
-Title 	
-Test
-Details
-Strong Password
-Expression 	
-^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,20}$
-Description 	
-Password between 8 and 20 characters; must contain at least one lowercase letter, one uppercase letter, one numeric digit, and one special character, but cannot contain whitespace.
-Matches 	
-Abc1234# | abcD$123 | A1b2&C3!
-Non-Matches 	
-abcd1234 | AbCd!@#$ | Abc 123#
