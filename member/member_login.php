@@ -30,12 +30,8 @@
             <input type="submit" value="Resister Here">
         </form>  
         <div class="error">
-         <?php if(!empty($error)) {
-    echo $error;
-   }
-  
-   ?>
-   </div> 
+          <?php if(!empty($error)) { echo $error; } ?>
+        </div> 
     </article><!-- end main article -->
 
     <!-- first sidebar goes here -->

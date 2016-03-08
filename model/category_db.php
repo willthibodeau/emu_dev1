@@ -53,11 +53,26 @@ function detect_category_name($name){
 	$stmt = $db->prepare($sql);
 	$stmt->execute();
 		if($data = $stmt->fetch()){
-                    $error_message = "The Category Name you entered is already in the database, please try another name.";
+                    $error = "The Category Name you entered is already in the database, please try another name.";
 		} else {
                     add_category($name);
                     
 		}
+}
+// update category not working
+function update_category($category_id, $category_name) {
+    global $db;
+    print_r($category_name);
+    print_r($category_id);
+    $query = '
+        UPDATE categories
+        SET cat_categoryName = :category_name
+        WHERE cat_categoryID = :category_id';
+        $statement = $db->prepare($query);
+        $statement->bindValue(':category_name', $category_name);
+        $statement->bindValue(':category_id', $category_id);
+        $statement->execute();
+        $statement->closeCursor();
 }
 
 ?>

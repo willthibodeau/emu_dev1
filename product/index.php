@@ -1,8 +1,10 @@
 <?php
+echo "product index";
 require('../model/database.php');
 require('../model/product_db.php');
 require('../model/category_db.php');
 
+session_start();
 $action = filter_input(INPUT_POST, 'action');
 if ($action == NULL) {
     $action = filter_input(INPUT_GET, 'action');
@@ -18,9 +20,16 @@ if ($action == 'list_products') {
         $category_id = 1;
     }
     $categories = get_categories();
+    print_r($categories);
     $category_name = get_category_name($category_id);
     $products = get_products_by_category($category_id);
+    echo "string";
     include('product_list.php');
+
+} else if ($action == 'show_add_form') {
+    $products = get_product();
+    include('product_add.php'); 
+
 } else if ($action == 'view_product') {
     $product_id = filter_input(INPUT_GET, 'product_id', 
             FILTER_VALIDATE_INT);   

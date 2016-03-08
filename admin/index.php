@@ -28,13 +28,12 @@ switch ($action) {
     case 'login':
         $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
         $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
-        echo $username;
         // If valid username/password, login
         if (is_valid_admin_login($username, $password)) {
             $_SESSION['admin'] = $username;
-            $error_message = " ";
+            $error = " ";
         } else {
-            $error_message = 'Login failed. Invalid email or password.';
+            $error = 'Login failed. Invalid email or password.';
         }
         include 'admin_menu.php';
         break;

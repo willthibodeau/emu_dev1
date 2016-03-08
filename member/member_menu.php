@@ -11,14 +11,13 @@
 
     <!-- main content goes here -->
     <article class="main">
-      <h2>Article Title</h2>
-      <p>main content goes here</p>
+      
       
       <main>
-<h1>Member Menu</h1>
+<h2>Member Menu</h2>
 
 
-<h2>Login Status</h2>
+<h3>Login Status</h3>
     <p>You are logged in as <?php echo $_SESSION['member']; ?>.</p>
     
     <form action="" method="post">
@@ -26,6 +25,8 @@
         <input type="submit" value="Logout">
     </form>
 </main>
+
+
 <div class="error">
       <?php if(!empty($error)) {echo $error;}?>
   </div>
@@ -34,9 +35,9 @@
 
     <!-- first sidebar goes here -->
     <aside class="sidebar1">
-      <h2>Sidebar 1</h2>
-      
-     <p> sidebar menu goes here<p>
+      <!-- <h2>Sidebar 1</h2> -->
+      <?php include '../view/member_sidebar1.php'; ?>
+     <!-- <p> sidebar menu goes here<p> -->
     </aside><!-- end sidebar 1 -->
   </div><!-- end column wrapper -->
 

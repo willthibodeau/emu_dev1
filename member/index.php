@@ -34,7 +34,7 @@ switch ($action) {
         if($username == NULL || $username == FALSE || $password == NULL || $password == FALSE){
             $error = 'You must enter a username and password.';
             include 'member_login.php';
-        } else if (is_valid_member_login($username, $password)) {
+        } else if (is_valid_member_login($username, $password) == true) {
             $_SESSION['member'] = $username;
             $error = " ";
             include 'member_menu.php';

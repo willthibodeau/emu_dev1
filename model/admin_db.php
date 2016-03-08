@@ -1,6 +1,7 @@
 <?php
 function is_valid_admin_login($username, $password) {
     global $db;
+    $password = sha1($username . $password);
     $query = '
         SELECT * FROM users
         WHERE users_username = :username AND users_password = :password AND users_userLevel = "a"';
@@ -20,6 +21,7 @@ function is_valid_admin_login($username, $password) {
 
 function is_valid_member_login($username, $password) {
     global $db;
+    $password = sha1($username . $password);
     $query = '
         SELECT * FROM users
         WHERE users_username = :username AND users_password = :password and users_userLevel = m';

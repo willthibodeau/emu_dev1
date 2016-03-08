@@ -10,23 +10,24 @@
 
     <!-- main content goes here -->
     <article class="main">
-      <h2>Article Title</h2>
-      <p>main content goes here</p>
-       <h2>Admin Menu</h2>
+    <h2>Admin Menu</h2>
+    <a href="/emu_dev1/category/">Edit Categories</a>
     <h2>Login Status</h2>
     <p>You are logged in as <?php echo $_SESSION['admin']; ?>.</p>
     <form action="" method="post">
         <input type="hidden" name="action" value="logout">
         <input type="submit" value="Logout">
     </form>
-   
+    <div class="error">
+      <?php if(!empty($error)) { echo $error; } ?>
+    </div> 
     </article><!-- end main article -->
 
     <!-- first sidebar goes here -->
     <aside class="sidebar1">
       <h2>Sidebar 1</h2>
-      
-     <p> sidebar menu goes here<p>
+      <?php include '../view/admin_sidebar1.php'; ?>
+     
     </aside><!-- end sidebar 1 -->
   </div><!-- end column wrapper -->
 

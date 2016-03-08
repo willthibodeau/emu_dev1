@@ -120,8 +120,10 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`users_userID`, `users_username`, `users_password`, `users_userLevel`) VALUES
-(1, 'will', '123', 'a'),
-(2, 'mwill', '123', 'm');
+(1, 'btadmin', '1d1d13dc7908f8a13abe325f3e269261722a565c', 'a'),
+(2, 'btmem', 'e45026b7feb0793800d65b2b232bafc0b19fe553', 'm'),
+(3, 'wtadmin', 'c630d316c8209829a6762e7882a2595e751a9935', 'a'),
+(4, 'wtmem', 'cbafd2979f771552cee574b69c17f572e615927e', 'm');
 --
 -- Indexes for dumped tables
 --

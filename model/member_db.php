@@ -63,7 +63,7 @@ function is_valid_member_login($username, $password) {
     }
     $statement->closeCursor();
     return $valid; 
-//    http://jayblanchard.net/proper_password_hashing_with_PHP.html
+
 }
 
 // check for existing room name
