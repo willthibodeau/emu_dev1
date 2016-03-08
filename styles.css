@@ -225,3 +225,6 @@ form {
 form input {
     margin: 5px;
 }
+.error {
+    color: red;
+}

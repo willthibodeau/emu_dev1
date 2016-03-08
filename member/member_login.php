@@ -1,5 +1,7 @@
 
-<?php include '../view/header.php'; ?>
+<?php include '../view/header.php'; 
+
+?>
 
 <div class="contentWrapper"> 
   <div class="columnWrapper">
@@ -7,26 +9,33 @@
     <!-- main content goes here -->
     <article class="main">
         <h2>Member Login</h2>
-        <form action="" method="post" id="aligned">
+        <form action="." method="post" id="aligned">
             <input type="hidden" name="action" value="login">
 
             <label>Username:</label>
-            <input type="text"   required="required" name="username" size="30">
+            <input type="text" name="username" size="30" placeholder="Enter your username">
             <br>
 
             <label>Password:</label>
-            <input type="password"  required="required"  name="password" size="30">
+            <input type="password"    name="password" size="30" placeholder="Enter your password">
             <br>
 
             <label>&nbsp;</label>
             <input type="submit" value="Login">
         </form>
-        <?php echo $error_message; ?>
+        
         <h2>Not a member?</h2>
-        <form action="" method="post">
+        <form action="." method="post">
             <input type="hidden" name="action" value="register">
             <input type="submit" value="Resister Here">
-        </form>   
+        </form>  
+        <div class="error">
+         <?php if(!empty($error)) {
+    echo $error;
+   }
+  
+   ?>
+   </div> 
     </article><!-- end main article -->
 
     <!-- first sidebar goes here -->

@@ -19,7 +19,7 @@ if ($action === NULL) {
 
 switch ($action) { 
     case 'view_login':
-        $error_message = "";
+        $error = "";
         include('member_login.php');
         break;
     
@@ -32,20 +32,20 @@ switch ($action) {
         $password = filter_input(INPUT_POST, 'password');
         
         if($username == NULL || $username == FALSE || $password == NULL || $password == FALSE){
-            $error_message = 'You must enter a username and password.';
+            $error = 'You must enter a username and password.';
             include 'member_login.php';
         } else if (is_valid_member_login($username, $password)) {
             $_SESSION['member'] = $username;
-            $error_message = " ";
+            $error = " ";
             include 'member_menu.php';
         } else {
-            $error_message = 'Login failed. Invalid email or password.';
+            $error = 'Login failed. Invalid email or password.';
             include 'member_login.php';
         }
         break;
         
     case 'register':
-        $error_message = " ";
+        $error = " ";
         include 'register.php';
         break;
     
@@ -55,22 +55,23 @@ switch ($action) {
         $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
         $userLevel = filter_input(INPUT_POST, 'userLevel', FILTER_SANITIZE_STRING);
         
-        $regex_patern = '/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,20}$/';
-        if (!preg_match( $regex_patern, $password)){
-           $errors['password'] = "Please enter a password within the given parameters";
-        } 
-        if($username == Null || $username == FALSE || $password == NULL || $password == FALSE) {
-            $errors['username'] = "Please enter a username and password to register.";
-            
+        if($username == NULL || $username == FALSE){
+            $error = "Please enter a username";
+            include'register.php';
+        } else if($password == NULL || $password == False ){
+            $error = "Please enter a password";
+            include'register.php';          
         } else {
-            
             $detectMemberName = detect_member_name($username);
             if($detectMemberName == false){
-                add_member($username, $password, $userLevel);
+            add_member($username, $password, $userLevel);
+            include'member_login.php';
+            } else {
+                $error = "the name is in the database";
+                include 'register.php';
             }
         }
         break;
-    
     case 'logout':
         unset($_SESSION['member']);
         header('Location: ..' );
@@ -80,5 +81,30 @@ switch ($action) {
         echo 'Unknown action: ' . $action;
         break;
 }
-?>
 
+
+?>
+<!-- if($username == Null || $username == FALSE $password == NULL || $password == FALSE){
+            $errors['username'] = 'Please enter a username';
+         {
+       
+      } 
+        
+        if(!empty($errors)) {
+            $_SESSION['errors'] = $errors;
+            header('Location: register.php');
+        }
+        if(empty($errors))  { 
+            $detectMemberName = detect_member_name($username);
+        }else if($detectMemberName == false){
+            add_member($username, $password, $userLevel);
+            header('Location: member_login.php');
+            unset($_SESSION['errors']);
+        }
+        
+        break; -->
+<!--  // $regex_patern = '^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,20}$';
+            // if (!preg_match( $regex_patern, $password)){
+                $error = "Please enter a password within the given parameters";
+                include'register.php';
+            // } -->

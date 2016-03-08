@@ -1,4 +1,6 @@
-<?php include '../view/header.php'; ?>
+<?php include '../view/header.php'; 
+
+?>
 
 <div class="contentWrapper"> 
   <div class="columnWrapper">
@@ -10,16 +12,16 @@
  
     
    <h2>Member Registration</h2>
-    <form action="" method="post" id="register_form">
+    <form action="." method="post" id="register_form">
         <input type="hidden" name="action" value="register_now">
 
         <input type="hidden" name="id" value="">
         <label>User Name:</label>
-        <input type="text" required="required" name="username" size="30">
+        <input type="text" name="username" size="30">
         <br>
 
         <label>Password:</label>
-        <input type="password" required="required" name="password" size="30" > 
+        <input type="password" name="password" size="30" > 
         <input type="hidden" name="userLevel" value="m">
         <br>
 
@@ -33,8 +35,10 @@ Matches
 Abc1234# | abcD$123 | A1b2&C3!
 Non-Matches 	
 abcd1234 | AbCd!@#$ | Abc 123#</p>
-   </div>
-   <?php echo   $error_message ; ?>
+  </div>
+  <div class="error">
+      <?php if(!empty($error)) {echo $error;}?>
+  </div>
 </main>
       
     </article><!-- end main article -->

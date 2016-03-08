@@ -20,11 +20,15 @@
 
 <h2>Login Status</h2>
     <p>You are logged in as <?php echo $_SESSION['member']; ?>.</p>
+    
     <form action="" method="post">
         <input type="hidden" name="action" value="logout">
         <input type="submit" value="Logout">
     </form>
 </main>
+<div class="error">
+      <?php if(!empty($error)) {echo $error;}?>
+  </div>
       
     </article><!-- end main article -->
 

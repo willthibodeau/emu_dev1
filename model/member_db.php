@@ -74,7 +74,7 @@ function detect_member_name($name){
 	$stmt->execute();
 		if($data = $stmt->fetch()){
 			$error_message = "The username you entered is already in the database, please try another name.";
-                        include 'register.php';
+            include 'register.php';
 		} else {
 			return false;
 		}

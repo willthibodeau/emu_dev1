@@ -121,7 +121,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`users_userID`, `users_username`, `users_password`, `users_userLevel`) VALUES
 (1, 'will', '123', 'a'),
-(2, 'mwill', '123', 'm'),
+(2, 'mwill', '123', 'm');
 --
 -- Indexes for dumped tables
 --
