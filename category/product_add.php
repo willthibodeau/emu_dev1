@@ -38,6 +38,17 @@ include '../view/header.php';
                     <input type="text" name="price" >
                     <label class="message"></label><br>
 
+                    <label>Image:</label>
+                    <select name="imagePath">
+                        <?php foreach( $imagepaths as $imagepath) : ?>
+                        <option value="<?php echo $imagepath['path']; ?>">
+                        </option>
+                        <?php endforeach; ?>
+                    </select><br>
+
+                    <label>Image Path:</label>
+                    <input type="text" name="altpath" ><br>
+
                     <label>&nbsp;</label>
                     <input type="submit" value="Add Product" /><br>
                 </form>

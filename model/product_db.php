@@ -49,4 +49,15 @@ function add_product($category_id, $code, $name, $description,  $price) {
     $statement->execute();
     $statement->closeCursor();
 }
+
+function get_imagepath() {
+    global $db;
+    $query = 'SELECT * FROM products order by imagepath
+              ';
+    $statement = $db->prepare($query);
+    $statement->execute();
+    $imagepaths = $statement->fetchAll();
+    $statement->closeCursor();
+    return $imagepaths;
+}
 ?>

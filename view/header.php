@@ -20,8 +20,9 @@
 <li><a href="/emu_dev1/product/">Products</a></li>
 <li><a href="/emu_dev1/member/">Members</a></li>
 <li><a href="../contact.php">Contact Us</a></li>
-<li><a href="/emu_dev1/admin/">Login</a></li>
-<li><a href="/emu_dev1/util/logout.php">Logout</a></li>
+<li><a href="/emu_dev1/admin/">Admin</a></li>
+<li><a href="/emu_dev1/imageProcess/">ImageAdmin</a></li>
+
 
 </ul>
 </nav>

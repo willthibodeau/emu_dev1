@@ -16,12 +16,21 @@ if ($action == NULL) {
 if ($action == 'list_products') {
     $category_id = filter_input(INPUT_GET, 'category_id', 
             FILTER_VALIDATE_INT);
-    if ($category_id == NULL || $category_id == FALSE) {
+     $product_id = filter_input(INPUT_POST, 'product_id', 
+        FILTER_VALIDATE_INT);
+     if ($category_id == NULL || $category_id == FALSE) {
         $category_id = 1;
     }
+    if ($product_id == NULl || $product_id == FALSE) {
+        $product_id = 1;
+    }
+
     $category_name = get_category_name($category_id);
     $categories = get_categories();
     $products = get_products_by_category($category_id);
+    $imagepaths = get_imagepath($product_id);
+    print_r($imagepaths);
+    print_r($products);
     include('product_list.php');
 
 } else if ($action == 'delete_product') {
@@ -39,7 +48,7 @@ if ($action == 'list_products') {
      }
 
 } else if ($action == 'show_add_form') {
-    
+    $imagepaths = get_imagepath();
     $categories = get_categories();
     include('product_add.php'); 
 

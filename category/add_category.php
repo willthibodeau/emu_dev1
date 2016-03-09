@@ -33,6 +33,12 @@ require_once('../util/valid_admin.php');
         <input type="text" name="price" />
         <br>
 
+        <select name="imagePath">
+            <?php foreach( $imagepaths as $imagepath) : ?>
+            <option value="<?php echo $imagepath['path']; ?>">
+        </option>
+    </select>
+
         <label>&nbsp;</label>
         <input type="submit" value="Add Product" />
         <br>

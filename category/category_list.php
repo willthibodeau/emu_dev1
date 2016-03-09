@@ -1,5 +1,5 @@
 <?php 
-echo 'category_list';
+
 include '../view/header.php'; 
 require_once('../util/valid_admin.php');
 
@@ -41,7 +41,8 @@ require_once('../util/valid_admin.php');
                 <th>cat id</th>
                 <th>Code</th>
                 <th>Name</th>
-                <th class="right">Price</th>
+                <th>Price</th>
+                <th>Image</th>
                 <th>&nbsp;</th>
                 
             </tr>
@@ -52,8 +53,8 @@ require_once('../util/valid_admin.php');
                 <td><?php echo $product['prod_categoryID']; ?></td>
                 <td><?php echo $product['prod_prodCode']; ?></td>
                 <td><?php echo $product['prod_productName']; ?></td>
-                <td class="right"><?php echo $product['prod_price']; ?></td>
-                <td></td>
+                <td><?php echo $product['prod_price']; ?></td>
+                <td><img src="<?php echo $product['imagepath']; ?>" alt="<?php echo $product['imagealt']; ?>"></td>
             </tr>
             <?php endforeach; ?>
         </table>
