@@ -18,11 +18,10 @@ require_once('../util/valid_admin.php');
         <tr>
             <th>Name</th>
             <th>&nbsp;</th>
-            <th>&nbsp;</th>
         </tr>
         <?php foreach ($categories as $category) : ?>
         <tr>
-            <td><a href="<?php echo $category['cat_categoryID']; ?>"><?php echo $category['cat_categoryName']; ?></a></td>
+            <td><a href=".?category_id=<?php echo $category['cat_categoryID']; ?>"><?php echo $category['cat_categoryName']; ?></a></td>
             <td>
                 <form action="index.php" method="post">
                     <input type="hidden" name="action" value="delete_category" />
@@ -31,19 +30,42 @@ require_once('../util/valid_admin.php');
                     <input type="submit" value="Delete"/>
                 </form>
             </td>
-
-             <td>
-                <form action="index.php" method="post">
-                    <input type="hidden" name="action" value="update_category" />
-                    <input type="hidden" name="category_id"
-                           value="<?php echo $category['cat_categoryID']; ?>"/>
-                    <input type="submit" value="Update"/>
-                </form>
-            </td>
-
         </tr>
         <?php endforeach; ?>
     </table>
+
+     <!-- display a table of products -->
+        <h2><?php echo $category_name; ?></h2>
+        <table>
+            <tr><th>productID</th>
+                <th>cat id</th>
+                <th>Code</th>
+                <th>Name</th>
+                <th class="right">Price</th>
+                <th>&nbsp;</th>
+                
+            </tr>
+
+            <?php foreach ($products as $product) : ?>
+            <tr>
+                <td><?php echo $product['prod_productID']; ?></td> 
+                <td><?php echo $product['prod_categoryID']; ?></td>
+                <td><?php echo $product['prod_prodCode']; ?></td>
+                <td><?php echo $product['prod_productName']; ?></td>
+                <td class="right"><?php echo $product['prod_price']; ?></td>
+                <td><form action="delete_product.php" method="post">
+                    <input type="hidden" name="product_id"
+                           value="<?php echo $product['productID']; ?>">
+                    <input type="hidden" name="category_id"
+                           value="<?php echo $product['categoryID']; ?>">
+                    <input type="submit" value="Delete">
+                </form></td>
+            </tr>
+            <?php endforeach; ?>
+        </table>
+
+
+
 
     <h2>Add Category</h2>
     <form id="add_category_form"

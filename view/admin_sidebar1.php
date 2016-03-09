@@ -9,6 +9,6 @@
 
 <h3>Edit </h3>
 <a href="/emu_dev1/category/">Edit Categories</a><br>
-<a href="/emu_dev1/product/">Edit Products</a>
+<a href="/emu_dev1/category/product_add.php">Edit Products</a>
 
 

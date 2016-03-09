@@ -22,7 +22,7 @@ if ($action == 'list_products') {
     $category_name = get_category_name($category_id);
     $categories = get_categories();
     $products = get_products_by_category($category_id);
-    include('../product/product_list.php');
+    include('product_list.php');
 
 } else if ($action == 'delete_product') {
     $product_id = filter_input(INPUT_POST, 'product_id', 
@@ -47,18 +47,26 @@ if ($action == 'list_products') {
             FILTER_VALIDATE_INT);
     $code = filter_input(INPUT_POST, 'code');
     $name = filter_input(INPUT_POST, 'name');
+    $description = filter_input(INPUT_POST, 'description');
     $price = filter_input(INPUT_POST, 'price');
     if ($category_id == NULL || $category_id == FALSE || $code == NULL || 
             $name == NULL || $price == NULL || $price == FALSE) {
         $error = "Invalid product data. Check all fields and try again.";
         include('../errors/error.php');
     } else { 
-        add_product($category_id, $code, $name, $price);
+        add_product($category_id, $code, $name, $description, $price);
         header("Location: .?category_id=$category_id");
     }
 
 } else if ($action == 'list_categories') {
+    $category_id = filter_input(INPUT_GET, 'category_id', 
+            FILTER_VALIDATE_INT);
+    if ($category_id == NULL || $category_id == FALSE) {
+        $category_id = 1;
+    }
     $categories = get_categories();
+    $category_name = get_category_name($category_id);
+    $products = get_products_by_category($category_id);
     include('category_list.php');
 
 } else if ($action == 'add_category') {
