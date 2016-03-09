@@ -1,5 +1,5 @@
 <?php 
-
+echo 'this is the product list.php in categories';
 include '../view/header.php'; 
 require_once('../util/valid_admin.php');
 
@@ -15,6 +15,22 @@ require_once('../util/valid_admin.php');
                
 
                 <section>
+
+<table>
+        <tr>
+            <th>Name</th>
+            <th>&nbsp;</th>
+        </tr>
+        <?php foreach ($categories as $category) : ?>
+        <tr>
+            <td><a href=".?category_id=<?php echo $category['cat_categoryID']; ?>"><?php echo $category['cat_categoryName']; ?></a></td>
+            <td>
+                
+            </td>
+        </tr>
+        <?php endforeach; ?>
+    </table>
+
                     <!-- display a table of products -->
                     <h2>Category <?php echo $category_name; ?></h2>
                     <table>

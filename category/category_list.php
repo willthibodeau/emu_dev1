@@ -14,6 +14,7 @@ require_once('../util/valid_admin.php');
 <main>
 <p>You are logged in as <?php echo $_SESSION['admin']; ?>.</p>
     <h1>Category List</h1>
+    <p>NOTE: You must delete the products in the category before you can delete the category.</p>
     <table>
         <tr>
             <th>Name</th>
@@ -34,8 +35,7 @@ require_once('../util/valid_admin.php');
         <?php endforeach; ?>
     </table>
 
-     <!-- display a table of products -->
-        <h2><?php echo $category_name; ?></h2>
+    <h2>Products</h2><p> in the <?php echo $category_name; ?> category are:</p> 
         <table>
             <tr><th>productID</th>
                 <th>cat id</th>
@@ -53,13 +53,7 @@ require_once('../util/valid_admin.php');
                 <td><?php echo $product['prod_prodCode']; ?></td>
                 <td><?php echo $product['prod_productName']; ?></td>
                 <td class="right"><?php echo $product['prod_price']; ?></td>
-                <td><form action="delete_product.php" method="post">
-                    <input type="hidden" name="product_id"
-                           value="<?php echo $product['productID']; ?>">
-                    <input type="hidden" name="category_id"
-                           value="<?php echo $product['categoryID']; ?>">
-                    <input type="submit" value="Delete">
-                </form></td>
+                <td></td>
             </tr>
             <?php endforeach; ?>
         </table>
@@ -78,9 +72,7 @@ require_once('../util/valid_admin.php');
     </form>
      <div class="error">
       <?php if(!empty($error)) { echo $error; } ?>
-    </div> 
-
-    <p><a href="index.php?action=list_products">List Products</a></p>
+    </div>
 
     <form action="" method="post">
         <input type="hidden" name="action" value="logout">
@@ -91,6 +83,7 @@ require_once('../util/valid_admin.php');
 
 <div class="error">
       <?php if(!empty($error)) {echo $error;}?>
+      <?php if(!empty($message)) {echo $message;} ?>
   </div>
       
     </article><!-- end main article -->

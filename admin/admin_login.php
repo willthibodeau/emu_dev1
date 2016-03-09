@@ -24,6 +24,7 @@
           <?php if(!empty($error)) { echo $error; } ?>
         </div>  
     </main>
+    
     </article><!-- end main article -->
 
     <!-- first sidebar goes here -->

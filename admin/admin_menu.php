@@ -3,6 +3,7 @@
     require_once('../util/valid_admin.php');
 ?>
 <?php include '../view/header.php'; ?>
+
 <main>
     
     <div class="contentWrapper"> 

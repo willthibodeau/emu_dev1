@@ -15,7 +15,7 @@ function get_products_by_category($category_id) {
 function get_product($product_id) {
     global $db;
     $query = 'SELECT * FROM products
-              WHERE productID = :product_id';
+              WHERE prod_productID = :product_id';
     $statement = $db->prepare($query);
     $statement->bindValue(":product_id", $product_id);
     $statement->execute();
@@ -27,7 +27,7 @@ function get_product($product_id) {
 function delete_product($product_id) {
     global $db;
     $query = 'DELETE FROM products
-              WHERE productID = :product_id';
+              WHERE prod_productID = :product_id';
     $statement = $db->prepare($query);
     $statement->bindValue(':product_id', $product_id);
     $statement->execute();
@@ -37,9 +37,9 @@ function delete_product($product_id) {
 function add_product($category_id, $code, $name, $description,  $price) {
     global $db;
     $query = 'INSERT INTO products
-                 (prod_categoryID, prod_prodCode, prod_productName, prod_description, prod_price)
+                 (prod_productID, prod_categoryID, prod_prodCode, prod_productName, prod_description, prod_price)
               VALUES
-                 (:category_id, :code, :name,:description, :price)';
+                 (NULL, :category_id, :code, :name,:description, :price)';
     $statement = $db->prepare($query);
     $statement->bindValue(':category_id', $category_id);
     $statement->bindValue(':code', $code);
