@@ -16,12 +16,12 @@
 <header>
 <nav class="clear">
 <ul class="dropdown">
-<li><a href="/emu_dev1/index.php">Home</a></li>
-<li><a href="/emu_dev1/product/">Products</a></li>
-<li><a href="/emu_dev1/member/">Members</a></li>
+<li><a href="../index.php">Home</a></li>
+<li><a href="product/">Products</a></li>
+<li><a href="member/">Members</a></li>
 <li><a href="../contact.php">Contact Us</a></li>
-<li><a href="/emu_dev1/admin/">Admin</a></li>
-<li><a href="/emu_dev1/imageProcess/">ImageAdmin</a></li>
+<li><a href="admin/">Admin</a></li>
+<li><a href="imageProcess/">ImageAdmin</a></li>
 
 
 </ul>

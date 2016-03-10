@@ -81,7 +81,9 @@ CREATE TABLE IF NOT EXISTS `products` (
   `prod_productName` varchar(60) NOT NULL,
   `prod_description` text NOT NULL,
   `prod_price` decimal(10,2) NOT NULL,
-  `prod_date` datetime NOT NULL
+  `prod_date` datetime NOT NULL,
+  `prod_image` varchar(255) NOT NULL,
+  `prod_image_alt` varchar(255) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
@@ -94,8 +96,8 @@ CREATE TABLE IF NOT EXISTS `products` (
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`prod_productID`, `prod_categoryID`, `prod_prodCode`, `prod_productName`, `prod_description`, `prod_price`, `prod_date`) VALUES
-(1, 1, 'beef', 'beef package 1', 'many packages of beef', '100.00', '2016-02-04 00:00:00');
+INSERT INTO `products` (`prod_productID`, `prod_categoryID`, `prod_prodCode`, `prod_productName`, `prod_description`, `prod_price`, `prod_date`, `prod_image`, `prod_image_alt`) VALUES
+(1, 1, 'beef', 'beef package 1', 'many packages of beef', '100.00', '2016-02-04 00:00:00', '../imageProcess/images', 'beef products');
 
 -- --------------------------------------------------------
 
